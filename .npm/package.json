@@ -28,6 +28,9 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-filter": "^3.0.1",
     "gulp-html-prettify": "0.0.1",
+    "gulp-jslint": "^0.2.2",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^2.0.5",
     "gulp-sourcemaps": "^1.6.0"
   }
