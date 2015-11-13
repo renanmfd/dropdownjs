@@ -1,0 +1,34 @@
+{
+  "name": "dropdownjs",
+  "version": "1.0.0",
+  "description": "DropdownJS is a plugin that allow developers to theme the select dropdown and make them look better.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanmfd/dropdownjs.git"
+  },
+  "keywords": [
+    "select",
+    "dropdown",
+    "javascript",
+    "plugin"
+  ],
+  "author": "Renan Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renanmfd/dropdownjs/issues"
+  },
+  "homepage": "https://github.com/renanmfd/dropdownjs#readme",
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-filter": "^3.0.1",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
