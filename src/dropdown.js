@@ -7,16 +7,63 @@
             size: 200
         },
 
+        /**
+         * Constructor.
+         */
         Dropdown = function (selectors) {
-            this.selectors = selectors || ['dropdown'];
+            // If selectors is not an array or is empty, initialize.
+            if (typeof selectors !== 'array' || selectors.length === 0) {
+                selectors = ['.dropdown'];
+            }
+            this.selectors = selectors;
         };
 
     /**
+     * PRIVATE
+     * Build the plugin HTML to substitute select tags.
+     */
+    function buildHTML(element) {
+        var dropdown = document.createElement('div'),
+            view = document.createElement('div'),
+            options = document.createElement('ul'),
+            i = 0;
+        // Copy all attributes from select to the new dropdown.
+        for (i = 0; i < element.attributes.length; i = i + 1) {
+            dropdown.setAttribute(element.attributes[i].nodeName, element.attributes[i].nodeValue);
+        }
+        dropdown.className += ' dropdown-container';
+
+        // Build the viewer of the dropdown.
+        view.className = 'dropdown-view';
+        view.innerHTML = '<span>' + element[0].innerHTML + '</span>';
+
+        // Add options and a placeholder to the dropdown.
+        options.className = 'dropdown-options';
+        options.innerHTML = '<li class="placeholder">TODO placeholder</li>';
+        for (i = 0; i < element.children.length; i = i + 1) {
+            options.innerHTML += '<li class="option">' + element.children[i].innerHTML + '</li>';
+        }
+
+        // Join all toghether.
+        dropdown.appendChild(view);
+        dropdown.appendChild(options);
+        return dropdown;
+    }
+
+    /**
+     * PRIVATE
      * Dropdown engine - Lots TODO.
      */
     function doSomething(element) {
-        console.log(element);
-        return element;
+        console.log('debug', 'doSomething');
+        console.log('debug', element);
+        var parent = element.parentNode,
+            dropdown = buildHTML(element);
+        // Append new HTML for dropdown.
+        parent.insertBefore(dropdown, element);
+        // Hide SELECT tag.
+        element.style.display = 'none';
+        return dropdown;
     }
 
     /**
@@ -35,16 +82,20 @@
     Dropdown.prototype.apply = function () {
         var length = this.selectors.length,
             i = 0,
-            element = null;
+            j = 0,
+            elements = null;
 
         // Iterate over all selectors.
         for (i = 0; i < length; i = i + 1) {
             // Get DOM element(s) matching the selector.
-            element = document.querySelectorAll(this.selectors[i]);
-            // Check if something was returned.
-            if (element.length > 0) {
-                // TO-DO Check if there is more than one element for this selector and TODO: Iterate over elements and call function that do things.
-                doSomething(element);
+            elements = document.querySelectorAll(this.selectors[i]);
+
+            // Iterate over the returned elements.
+            for (j = 0; j < elements.length; j = j + 1) {
+                // Check if the element is a SELECT tag.
+                if (elements[j].tagName === 'SELECT') {
+                    doSomething(elements[j]);
+                }
             }
         }
     };
