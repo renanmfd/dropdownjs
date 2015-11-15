@@ -10,28 +10,16 @@ var gulp = require('gulp'),
   jslint = require('gulp-jslint'),
   jsmin = require('gulp-jsmin'),
   rename = require('gulp-rename'),
+  swig = require('gulp-swig'),
+  custom_filters = require('./filter/custom_filters.js'),
   reload = browserSync.reload,
   src = {
     scss: '../scss/*.scss',
     appScss: '../app/scss/*.scss',
     css: '../css',
-    html: '../app/index.html',
+    swig: '../app/templates/*.twig',
     js: '../src/*.js',
   };
-
-/**
- * Start the BrowserSync Static Server + Watch files
- */
-gulp.task('default', ['sass', 'appScss', 'js', 'html'] , function () {
-  browserSync({
-    server: '../app',
-  });
-
-  gulp.watch(src.scss, ['sass']);
-  gulp.watch(src.appScss, ['appScss']);
-  gulp.watch(src.js, ['js']);
-  gulp.watch(src.html, ['html']);
-});
 
 /**
  * Kick off the sass stream with source maps + error handling
@@ -66,9 +54,7 @@ gulp.task('sass', function () {
  */
 gulp.task('appScss', function () {
   return sassStream(src.appScss)
-    .pipe(gulp.dest(src.css))
     .pipe(gulp.dest('../app/css'))
-    .pipe(filter("**/*.css"))
     .pipe(reload({stream: true}));
 });
 
@@ -92,15 +78,37 @@ gulp.task('js', function () {
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('../app/js/'))
     .pipe(gulp.dest('../'))
-    .pipe(reload({stream: true}));
+    .on('end', reload);
+});
+
+gulp.task('templates', function() {
+  gulp.src('../app/templates/index.twig')
+    .pipe(swig({
+      load_json: true,
+      json_path: '../temapltes/json_data/',
+      setup: function(swig) {
+        for (var key in custom_filters) {
+          swig.setFilter(key, custom_filters[key]);
+        }
+      },
+    }))
+    //.pipe(prettify({indent_char: ' ', indent_size: 2}))
+    .pipe(gulp.dest('../app'))
+    .on('end', reload);
 });
 
 /**
- * Generate templates.
+ * Start the BrowserSync Static Server + Watch files
  */
-gulp.task('html', function () {
-  return gulp.src(src.html)
-    .pipe(prettify({indent_char: ' ', indent_size: 2}))
-    .pipe(rename({suffix: '.pretty'}))
-    .pipe(gulp.dest('../app'));
+gulp.task('serve', ['sass', 'appScss', 'js', 'templates'] , function () {
+  browserSync({
+    server: '../app',
+  });
+
+  gulp.watch(src.scss, ['sass']);
+  gulp.watch(src.appScss, ['appScss']);
+  gulp.watch(src.js, ['js']);
+  gulp.watch(src.swig, ['templates']);
 });
+
+gulp.task('default', ['serve']);
