@@ -52,6 +52,7 @@ $font-size: 14px;
         right: 10px;
         top: 50%;
         transform: translateY(-50%);
+        opacity: 0.7;
         background-image: url('../img/pointer.png');
         background-repeat: no-repeat;
         background-position: 0 0;
@@ -59,6 +60,10 @@ $font-size: 14px;
 
     &:focus {
         box-shadow: 0 0 1px 1px $focus-color;
+      
+        &:after {
+          opacity: 1;
+        }
     }
 }
 

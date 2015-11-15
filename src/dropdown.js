@@ -133,8 +133,8 @@
      * PRIVATE
      * Handle click on the dropdown options.
      */
-    function optionClick(event) {
-        console.log('clickOption', event);
+    function optionClick() {
+        //console.log('clickOption', event);
         var element = document.createElement('span'),
             selected = this.getAttribute('data-index'),
             dropdown = this.parentNode.parentNode,
@@ -213,7 +213,7 @@
         options.className = 'dropdown-options';
         options.onclick = dropdownClick;
         for (i = 0; i < element.children.length; i = i + 1) {
-            console.log('element', element.children[i]);
+            //console.log('element', element.children[i]);
             // Handle normal options
             if (element.children[i].tagName === 'OPTION') {
                 option = document.createElement('li');
@@ -265,12 +265,11 @@
         // Append new HTML for dropdown.
         parent.insertBefore(dropdown, element);
         // Hide SELECT tag.
-        //element.style.display = 'none';
-        element.style.height = '0';
-        element.style.visibility = 'hidden';
-        element.style.margin = '0';
-        element.style.border = 'none';
-        element.style.opacity = 0.7;
+        element.style.display = 'none';
+        //element.style.height = '0';
+        //element.style.visibility = 'hidden';
+        //element.style.margin = '0';
+        //element.style.border = 'none';
 
         return dropdown;
     }
@@ -302,7 +301,7 @@
             elements = null;
 
         // Iterate over all objects.
-        console.log('all Objects', this.objects);
+        //console.log('all Objects', this.objects);
         for (i = 0; i < length; i = i + 1) {
             // Get DOM element(s) matching the selector.
             elements = document.querySelectorAll(this.objects[i].selector);
@@ -311,7 +310,7 @@
             for (j = 0; j < elements.length; j = j + 1) {
                 // Check if the element is a SELECT tag.
                 if (elements[j].tagName === 'SELECT') {
-                    console.log('doSomething', this.objects[i]);
+                    //console.log('doSomething', this.objects[i]);
                     doSomething(elements[j], this.objects[i]);
                 }
             }
