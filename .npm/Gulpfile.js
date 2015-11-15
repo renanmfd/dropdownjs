@@ -12,53 +12,62 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   reload = browserSync.reload,
   src = {
-    scss: '../scss/**/*.scss',
+    scss: '../scss/*.scss',
+    appScss: '../app/scss/*.scss',
     css: '../css',
-    html: '../app/*.html',
+    html: '../app/index.html',
     js: '../src/*.js',
   };
 
 /**
  * Start the BrowserSync Static Server + Watch files
  */
-gulp.task('default', ['sass', 'js', 'html'] , function () {
-
+gulp.task('default', ['sass', 'appScss', 'js', 'html'] , function () {
   browserSync({
     server: '../app',
   });
 
   gulp.watch(src.scss, ['sass']);
+  gulp.watch(src.appScss, ['appScss']);
   gulp.watch(src.js, ['js']);
   gulp.watch(src.html, ['html']);
 });
 
-
 /**
  * Kick off the sass stream with source maps + error handling
  */
-function sassStream() {
-  return sass('./scss', {
-    sourcemap: true,
-    style: 'expanded',
-    unixNewlines: true
-  })
-    .on('error', function (err) {
-      console.error('Error!', err.message);
+function sassStream(path) {
+  return sass(path, {
+      sourcemap: true,
+      style: 'expanded',
+      unixNewlines: true
     })
-    .pipe(autoprefixer({ browsers: ['> 5%', 'last 1 version']}))
+    .on('error', sass.logError)
+    .pipe(autoprefixer({ browsers: ['> 5%', 'last 2 version']}))
     .pipe(sourcemaps.write('./', {
       includeContent: false,
-      sourceRoot: '/scss'
+      sourceRoot: '../scss'
     }));
 }
 
-
 /**
- * Compile sass, filter the results, inject CSS into all browsers.
+ * Compile PLUGIN sass, filter the results, inject CSS into all browsers.
  */
 gulp.task('sass', function () {
-  return sassStream()
+  return sassStream(src.scss)
     .pipe(gulp.dest(src.css))
+    .pipe(gulp.dest('../app/css'))
+    .pipe(filter("**/*.css"))
+    .pipe(reload({stream: true}));
+});
+
+/**
+ * Compile APP sass, filter the results, inject CSS into all browsers.
+ */
+gulp.task('appScss', function () {
+  return sassStream(src.appScss)
+    .pipe(gulp.dest(src.css))
+    .pipe(gulp.dest('../app/css'))
     .pipe(filter("**/*.css"))
     .pipe(reload({stream: true}));
 });
@@ -91,5 +100,7 @@ gulp.task('js', function () {
  */
 gulp.task('html', function () {
   return gulp.src(src.html)
-    .pipe(prettify({indent_char: ' ', indent_size: 2}));
+    .pipe(prettify({indent_char: ' ', indent_size: 2}))
+    .pipe(rename({suffix: '.pretty'}))
+    .pipe(gulp.dest('../app'));
 });
