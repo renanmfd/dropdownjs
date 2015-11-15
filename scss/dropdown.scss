@@ -1,0 +1,153 @@
+$border: #d4d4d4;
+$background: #e5e5e5;
+$main-bg: #ffffff;
+$border-radius: 5px;
+$color: #454545;
+$hover-bg: #bcbcbc;
+$hover-color: #ffffff;
+$focus-color: #a3a3a3;
+$font-size: 14px;
+
+.dropdown-container {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 10px 0;
+    box-sizing: border-box;
+    zoom: 1;
+
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.dropdown-view {
+    display: block;
+    position: relative;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    text-decoration: none;
+    background: $main-bg; /* Old browsers */
+    background: linear-gradient(to bottom, $main-bg 0%,$background 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+
+    span {
+        display: block;
+        vertical-align: top;
+        margin-right: 30px;
+        padding: 4px 7px;
+        font-family: sans-serif;
+        font-size: $font-size;
+        color: $color;
+        text-align: center;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('../img/pointer.png');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+    }
+
+    &:focus {
+        box-shadow: 0 0 1px 1px $focus-color;
+    }
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    margin-top: -2px;
+    padding: 5px 2px;
+    list-style: none;
+    background-color: $main-bg;
+    border: 1px solid $border;
+    border-top: none;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    cursor: pointer;
+
+    li {
+        padding: 2px 5px;
+        font-family: sans-serif;
+        font-size: $font-size;
+        color: $color;
+        user-select: none;
+
+        &:hover {
+            background-color: $hover-bg;
+            color: $hover-color;
+        }
+
+        &.optgroup {
+            font-weight: bold;
+            cursor: default;
+
+            &:hover {
+                background-color: transparent;
+                color: $color;
+            }
+        }
+
+        &.group-option {
+            padding-left: 15px;
+        }
+    }
+}
+
+.dropdown-outside {
+    display: none;
+}
+
+.dropdown-open {
+    border-radius: $border;
+    z-index: 1000;
+
+    .dropdown-view {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background: $background; /* Old browsers */
+        background: linear-gradient(to bottom, $background 0%,$main-bg 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        
+        &:after {
+            background-position: -10px 0;
+        }
+
+         &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .dropdown-options {
+        display: block;
+        z-index: 1002;
+    }
+
+    .dropdown-outside {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1001;
+    }
+}
+
+.dropdown-ellipsis {
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
