@@ -1,27 +1,44 @@
 {# Usage:  
     {% include "form-elements/select.twig" with {
+      id: 'id',
       name: 'Name', 
-      label: false, 
-      required: false,
-      chosen: true,
       classes: '',
       placeholder: '',
-      options: ['Opt1', 'Opt2', 'Opt3'] } 
+      multiple: false,
+      disabled: false,
+      options: [
+        {type: 'normal', text: 'Javascript', disabled: false},
+        {type: 'normal', text: 'Ajax', selected: true},
+        {type: 'normal', text: 'HTML'},
+        {type: 'optgroup', label: 'Group', group: [
+          {type: 'normal', text: 'HTML'},
+          {type: 'normal', text: 'HTML'},
+        ]},
+      ]
+    } 
     %}
   #}
-<div class="form-item form-type-select form-item-{{ name|css }}{% if classes %} {{ classes }}{% endif %}{% if !label %} no-label{% endif %}">
-  {% if label %}
-    <label for="edit-{{ name|css }}">
-      {{ name }}
-      {% if required %}
-        <span class="form-required">*</span>
-      {% endif %}
-    </label>
-  {% endif %}
-  <select id="edit-{{ name|css }}" class="form-select{% if chosen %} chosen-select{% endif %}" title="{{ name }}">
-    {% if placeholder %}<option value="0" selected="selected" disabled>{{ placeholder }}</option>{% endif %}
-    {% for key, value in options %}
-      <option value="{{ key }}">{{ value }}</option>
-    {% endfor %}
-  </select>
-</div>
+
+<select{% if id %} id="{{ id }}"{% endif %}
+          {% if classes %} class="{{ classes }}"{% endif %} title="{{ name }}"
+          {% if multiple %} multi{% endif %}
+          {% if placeholder %} data-placeholder="{{ placeholder }}"{% endif %}
+          {% if disabled %} disabled{% endif %}>
+  {% for value in options %}
+    {% if value.type == 'normal' %}
+      <option value="{{ value.text | css }}"{% if value.selected %} selected{% endif %}
+              {% if value.disabled %} disabled{% endif %}>{{ value.text }}</option>
+    {% endif %}
+    {% if value.type == 'optgroup' %}
+      <optgroup label="{{ value.label }}">
+        {% for opt in value.group %}
+          {% if opt.type == 'normal' %}
+            <option value="{{ opt.text | css }}"
+                    {% if opt.selected %} selected{% endif %}
+                    {% if value.disabled %} disabled{% endif %}>{{ opt.text }}</option>
+          {% endif %}
+        {% endfor %}
+      </optgroup>
+    {% endif %}
+  {% endfor %}
+</select>

@@ -8,7 +8,7 @@
         };
     }
 
-    var VERSION = '1.0',
+    var VERSION = '0.1',
         defaults = {
             width: '200px',
             ellisis: true
@@ -203,9 +203,18 @@
         // Placeholder placement.
         option = document.createElement('span');
         if (Object.prototype.hasOwnProperty.call(settings, 'placeholder')) {
+            // Unselect if placeholder is set.
+            element.selectedIndex = -1;
+            option.className = 'placeholder';
             option.innerHTML = settings.placeholder;
+        } else if (element.hasAttribute('data-placeholder')) {
+            // Unselect if placeholder is set.
+            element.selectedIndex = -1;
+            option.className = 'placeholder';
+            option.innerHTML = element.getAttribute('data-placeholder');
         } else {
-            option.innerHTML = element[0].innerHTML;
+            option.innerHTML = element[element.selectedIndex].innerHTML;
+            option.setAttribute('data-selected', element.selectedIndex);
         }
         view.appendChild(option);
 
@@ -219,6 +228,12 @@
                 option = document.createElement('li');
                 option.className = 'option';
                 option.setAttribute('data-index', index);
+                if (element.selectedIndex === i) {
+                    option.className += ' selected';
+                }
+                if (element.children[i].hasAttribute('disabled')) {
+                    option.className += ' disabled';
+                }
                 option.innerHTML = element.children[i].innerHTML;
                 option.onclick = optionClick;
                 options.appendChild(option);
@@ -234,6 +249,12 @@
                     option = document.createElement('li');
                     option.className = 'option group-option';
                     option.setAttribute('data-index', index);
+                    if (element.selectedIndex === i) {
+                        option.className += ' selected';
+                    }
+                    if (optgroup.children[j].hasAttribute('disabled')) {
+                        option.className += ' disabled';
+                    }
                     option.innerHTML = optgroup.children[j].innerHTML;
                     option.onclick = optionClick;
                     options.appendChild(option);

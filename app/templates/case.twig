@@ -1,0 +1,63 @@
+{# Usage:
+  {% include "case.twig" with {
+      id: '1',
+      name: 'Simple select',
+      completed: true,
+      tested: [true, false, false, false, false],
+      description: 'This is the first test done. Just to see if it works with simple
+        select tags, without any advanced stuff',
+      select: {
+        id: 'id',
+        name: 'Name', 
+        classes: '',
+        placeholder: '',
+        multiple: false,
+        options: [
+          {type: 'normal', text: 'Javascript'},
+          {type: 'normal', text: 'Ajax', selected: true},
+          {type: 'normal', text: 'HTML'},
+          {type: 'optgroup', label: 'Group', group: [
+            {type: 'normal', text: 'HTML'},
+            {type: 'normal', text: 'HTML'},
+          ]},
+        ]
+      }
+    } 
+  %}
+#}
+
+
+<div id="sample-{{ id }}" class="example">
+
+  <div class="presentation">
+    <span class="icon {% if completed %}icon-checkmark{% else %}icon-cross{% endif %}"></span>
+
+    <span class="prefix">Example {{ id }}:</span>
+
+    <h2>{{ name }}</h2>
+
+    <div class="tested-browsers">
+      <span class="icon icon-chrome{% if !tested[0] %} not-tested{% endif %}"></span>
+      <span class="icon icon-firefox{% if !tested[1] %} not-tested{% endif %}"></span>
+      <span class="icon icon-IE{% if !tested[2] %} not-tested{% endif %}"></span>
+      <span class="icon icon-opera{% if !tested[3] %} not-tested{% endif %}"></span>
+      <span class="icon icon-safari{% if !tested[4] %} not-tested{% endif %}"></span>
+    </div>
+
+    <div class="text-description">
+      <p>
+        {{ description }}
+      </p>
+    </div>
+  </div>
+
+  <div class="select-wrapper">
+    <div class="left-col">
+      {% include "select.twig" with select %}
+    </div>
+    <div class="right-col">
+      {% include "select.twig" with select %}
+    </div>
+  </div>
+
+</div>

@@ -3,9 +3,7 @@
   padding-bottom: 20px;
 }
 
-.select-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+.example {
   position: relative;
   padding: 10px 0;
   
@@ -24,7 +22,14 @@
     .icon {
       width: 30px;
       margin-right: 10px;
-      color: $check-green;
+      
+      &.icon-checkmark {
+        color: $check-green;
+      }
+
+      &.icon-cross {
+        color: $uncheck-red;
+      }
     }
 
     .prefix {
@@ -35,6 +40,7 @@
 
     h2 {
       display: inline;
+      margin-right: -20px;
       font-family: $font1;
       font-size: 18px;
       font-weight: 200;
@@ -56,7 +62,8 @@
   
   .tested-browsers {
     display: inline;
-    margin-left: 10px;
+    margin-left: 30px;
+    white-space: nowrap;
   
     .icon {
       color: $check-green;
@@ -66,19 +73,42 @@
       }
     }
   }
-  
+}
+
+.select-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-left: 30px;
+
   .left-col,
   .right-col {
     flex: 1 1 50%;
   }
   
   .left-col {
+    padding-right: 10px;
+
     select {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: 27px;
       margin: 10px 0;
+      padding: 3px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: rgb(85, 85, 85);
+      background-color: rgb(255, 255, 255);
+      background-image: none;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 4px;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     }
   }
   
   .right-col {
-    
+    padding-left: 10px;
   }
 }
