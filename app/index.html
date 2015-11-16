@@ -22,11 +22,19 @@
       <div class="container">
 
         <!-- EXAMPLE -->
-        <div class="select-wrapper">
+
+
+
+
+        <div id="sample-1" class="example">
+
           <div class="presentation">
             <span class="icon icon-checkmark"></span>
+
             <span class="prefix">Example 1:</span>
-            <h2>Simple select de Blasd asdsa</h2>
+
+            <h2>Simple select</h2>
+
             <div class="tested-browsers">
               <span class="icon icon-chrome"></span>
               <span class="icon icon-firefox not-tested"></span>
@@ -34,146 +42,676 @@
               <span class="icon icon-opera not-tested"></span>
               <span class="icon icon-safari not-tested"></span>
             </div>
+
             <div class="text-description">
               <p>
                 This is the first test done. Just to see if it works with simple select tags, without any advanced stuff.
               </p>
             </div>
           </div>
-          <div class="left-col">
-            <select class="no-dropdown">
-              <option>HTML</option>
-              <option>CSS</option>
-              <option>Javascript</option>
-              <option>jQuery</option>
-            </select>
 
-            <select id="id-select" class="droapsd asdasd" title="Name">
-              <option value="-6" default>asssssss</option>
+          <div class="select-wrapper">
+            <div class="left-col">
 
-              <option value="0">Opt1</option>
 
-              <option value="1">Opt2</option>
+              <select id="1" class="dropdown" title="Simple select">
 
-              <option value="2">Opt3</option>
 
-            </select>
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="ajax">Ajax</option>
+
+
+
+
+                <option value="html">HTML</option>
+
+
+
+
+                <option value="bootstrap">Bootstrap</option>
+
+
+
+              </select>
+            </div>
+            <div class="right-col">
+
+
+              <select id="1" class="dropdown" title="Simple select">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="ajax">Ajax</option>
+
+
+
+
+                <option value="html">HTML</option>
+
+
+
+
+                <option value="bootstrap">Bootstrap</option>
+
+
+
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="right-col">
-          <select class="dropdown">
-            <option>HTML</option>
-            <option>CSS</option>
-            <option>Javascript</option>
-            <option>jQuery</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- EXAMPLE -->
-      <div class="select-wrapper">
-        <h2>Example 2: Big select, to demonstrate scroll and big option.</h2>
-        <div class="left-col">
-          <select class="no-dropdown">
-            <option>SASS</option>
-            <option>Ajax</option>
-            <option>HTML: Hyper-text Markup Language</option>
-            <option>CSS</option>
-            <option>Javascript</option>
-            <option>jQuery</option>
-            <option>SASS</option>
-            <option>Ajax</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
         </div>
-        <div class="right-col">
-          <select class="dropdown">
-            <option>SASS</option>
-            <option>Ajax</option>
-            <option>HTML: Hyper-text Markup Language</option>
-            <option>CSS</option>
-            <option>Javascript</option>
-            <option>jQuery</option>
-            <option>SASS</option>
-            <option>Ajax</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- EXAMPLE -->
-      <div class="select-wrapper">
-        <h2>Example 3: When there is a selected option.</h2>
-        <div class="left-col">
-          <select class="no-dropdown">
-            <option>Ajax</option>
-            <option>HTML</option>
-            <option selected>Javascript</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-        <div class="right-col">
-          <select class="dropdown">
-            <option>Ajax</option>
-            <option>HTML</option>
-            <option selected>Javascript</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- EXAMPLE -->
-      <div class="select-wrapper">
-        <h2>Example 4: Placeholder with default on option tag.</h2>
-        <div class="left-col">
-          <select class="no-dropdown">
-            <option>jQuery</option>
-            <option>SASS</option>
-            <option default>Ajax</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-        <div class="right-col">
-          <select class="dropdown">
-            <option>jQuery</option>
-            <option>SASS</option>
-            <option default>Ajax</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-      </div>
 
-      <!-- EXAMPLE -->
-      <div class="select-wrapper">
-        <h2>Example 5: Placeholder with data-placeholder attribute.</h2>
-        <div class="left-col">
-          <select class="no-dropdown">
-            <option>Mozilla Firefox</option>
-            <option>SASS</option>
-            <option>Github</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-        <div class="right-col">
-          <select class="dropdown">
-            <option>Mozilla Firefox</option>
-            <option>SASS</option>
-            <option>Github</option>
-            <option>Brackets</option>
-            <option>Bootstrap</option>
-          </select>
-        </div>
-      </div>
 
-  </div>
-  </section>
+        <div id="sample-2" class="example">
+
+          <div class="presentation">
+            <span class="icon icon-checkmark"></span>
+
+            <span class="prefix">Example 2:</span>
+
+            <h2>Several options and large texts</h2>
+
+            <div class="tested-browsers">
+              <span class="icon icon-chrome"></span>
+              <span class="icon icon-firefox not-tested"></span>
+              <span class="icon icon-IE not-tested"></span>
+              <span class="icon icon-opera not-tested"></span>
+              <span class="icon icon-safari not-tested"></span>
+            </div>
+
+            <div class="text-description">
+              <p>
+                On this sample, we have big text to show text wrapping and a lots of options for overflow and scroll test.
+              </p>
+            </div>
+          </div>
+
+          <div class="select-wrapper">
+            <div class="left-col">
+
+
+              <select id="2" class="dropdown" title="Several options and large texts">
+
+
+                <option value="drupal">Drupal</option>
+
+
+
+
+                <option value="jira">JIRA</option>
+
+
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="ajax">Ajax</option>
+
+
+
+
+                <option value="html">HTML</option>
+
+
+
+
+                <option value="twitter-bootstrap">Twitter Bootstrap</option>
+
+
+
+
+                <option value="github">Github</option>
+
+
+
+
+                <option value="cascading-style-sheets-also-known-as-css">Cascading Style Sheets also known as CSS</option>
+
+
+
+
+                <option value="foundation">Foundation</option>
+
+
+
+
+                <option value="nodejs-is-an-amazing-tool-you-should-try-it">NodeJS is an amazing tool, you should try it</option>
+
+
+
+
+                <option value="gulp">Gulp</option>
+
+
+
+
+                <option value="gimp">GIMP</option>
+
+
+
+
+                <option value="sass">SASS</option>
+
+
+
+              </select>
+            </div>
+            <div class="right-col">
+
+
+              <select id="2" class="dropdown" title="Several options and large texts">
+
+
+                <option value="drupal">Drupal</option>
+
+
+
+
+                <option value="jira">JIRA</option>
+
+
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="ajax">Ajax</option>
+
+
+
+
+                <option value="html">HTML</option>
+
+
+
+
+                <option value="twitter-bootstrap">Twitter Bootstrap</option>
+
+
+
+
+                <option value="github">Github</option>
+
+
+
+
+                <option value="cascading-style-sheets-also-known-as-css">Cascading Style Sheets also known as CSS</option>
+
+
+
+
+                <option value="foundation">Foundation</option>
+
+
+
+
+                <option value="nodejs-is-an-amazing-tool-you-should-try-it">NodeJS is an amazing tool, you should try it</option>
+
+
+
+
+                <option value="gulp">Gulp</option>
+
+
+
+
+                <option value="gimp">GIMP</option>
+
+
+
+
+                <option value="sass">SASS</option>
+
+
+
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <div id="sample-3" class="example">
+
+          <div class="presentation">
+            <span class="icon icon-checkmark"></span>
+
+            <span class="prefix">Example 3:</span>
+
+            <h2>Selected option</h2>
+
+            <div class="tested-browsers">
+              <span class="icon icon-chrome"></span>
+              <span class="icon icon-firefox not-tested"></span>
+              <span class="icon icon-IE not-tested"></span>
+              <span class="icon icon-opera not-tested"></span>
+              <span class="icon icon-safari not-tested"></span>
+            </div>
+
+            <div class="text-description">
+              <p>
+                One of the options of the select will be selected by default and the Dropdown should do the same.
+              </p>
+            </div>
+          </div>
+
+          <div class="select-wrapper">
+            <div class="left-col">
+
+
+              <select id="3" class="dropdown" title="Selected option with selected">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="ajax">Ajax</option>
+
+
+
+
+                <option value="google-chrome">Google Chrome</option>
+
+
+
+
+                <option value="twitter-bootstrap" selected>Twitter Bootstrap</option>
+
+
+
+
+                <option value="github">Github</option>
+
+
+
+              </select>
+            </div>
+            <div class="right-col">
+
+
+              <select id="3" class="dropdown" title="Selected option with selected">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="ajax">Ajax</option>
+
+
+
+
+                <option value="google-chrome">Google Chrome</option>
+
+
+
+
+                <option value="twitter-bootstrap" selected>Twitter Bootstrap</option>
+
+
+
+
+                <option value="github">Github</option>
+
+
+
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <div id="sample-4" class="example">
+
+          <div class="presentation">
+            <span class="icon icon-checkmark"></span>
+
+            <span class="prefix">Example 4:</span>
+
+            <h2>Placeholder</h2>
+
+            <div class="tested-browsers">
+              <span class="icon icon-chrome"></span>
+              <span class="icon icon-firefox not-tested"></span>
+              <span class="icon icon-IE not-tested"></span>
+              <span class="icon icon-opera not-tested"></span>
+              <span class="icon icon-safari not-tested"></span>
+            </div>
+
+            <div class="text-description">
+              <p>
+                Adding a placeholder that cannot be selected, using the select data-placeholder attribute.
+              </p>
+            </div>
+          </div>
+
+          <div class="select-wrapper">
+            <div class="left-col">
+
+
+              <select id="4" class="dropdown" title="Placeholder" data-placeholder="Choose the best...">
+
+
+                <option value="github">Github</option>
+
+
+
+
+                <option value="cascading-style-sheets-also-known-as-css">Cascading Style Sheets also known as CSS</option>
+
+
+
+
+                <option value="foundation">Foundation</option>
+
+
+
+
+                <option value="nodejs-is-an-amazing-tool-you-should-try-it">NodeJS is an amazing tool, you should try it</option>
+
+
+
+
+                <option value="gulp">Gulp</option>
+
+
+
+              </select>
+            </div>
+            <div class="right-col">
+
+
+              <select id="4" class="dropdown" title="Placeholder" data-placeholder="Choose the best...">
+
+
+                <option value="github">Github</option>
+
+
+
+
+                <option value="cascading-style-sheets-also-known-as-css">Cascading Style Sheets also known as CSS</option>
+
+
+
+
+                <option value="foundation">Foundation</option>
+
+
+
+
+                <option value="nodejs-is-an-amazing-tool-you-should-try-it">NodeJS is an amazing tool, you should try it</option>
+
+
+
+
+                <option value="gulp">Gulp</option>
+
+
+
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <div id="sample-5" class="example">
+
+          <div class="presentation">
+            <span class="icon icon-checkmark"></span>
+
+            <span class="prefix">Example 5:</span>
+
+            <h2>Disabled option</h2>
+
+            <div class="tested-browsers">
+              <span class="icon icon-chrome"></span>
+              <span class="icon icon-firefox not-tested"></span>
+              <span class="icon icon-IE not-tested"></span>
+              <span class="icon icon-opera not-tested"></span>
+              <span class="icon icon-safari not-tested"></span>
+            </div>
+
+            <div class="text-description">
+              <p>
+                Test it with some options disabled.
+              </p>
+            </div>
+          </div>
+
+          <div class="select-wrapper">
+            <div class="left-col">
+
+
+              <select id="5" class="dropdown" title="Placeholder default">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="mozilla-firefox">Mozilla Firefox</option>
+
+
+
+
+                <option value="html" disabled>HTML</option>
+
+
+
+
+                <option value="twitter-bootstrap">Twitter Bootstrap</option>
+
+
+
+
+                <option value="foundation" disabled>Foundation</option>
+
+
+
+
+                <option value="nodejs-is-an-amazing-tool-you-should-try-it">NodeJS is an amazing tool, you should try it</option>
+
+
+
+              </select>
+            </div>
+            <div class="right-col">
+
+
+              <select id="5" class="dropdown" title="Placeholder default">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="mozilla-firefox">Mozilla Firefox</option>
+
+
+
+
+                <option value="html" disabled>HTML</option>
+
+
+
+
+                <option value="twitter-bootstrap">Twitter Bootstrap</option>
+
+
+
+
+                <option value="foundation" disabled>Foundation</option>
+
+
+
+
+                <option value="nodejs-is-an-amazing-tool-you-should-try-it">NodeJS is an amazing tool, you should try it</option>
+
+
+
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <div id="sample-6" class="example">
+
+          <div class="presentation">
+            <span class="icon icon-checkmark"></span>
+
+            <span class="prefix">Example 6:</span>
+
+            <h2>Groupped options</h2>
+
+            <div class="tested-browsers">
+              <span class="icon icon-chrome"></span>
+              <span class="icon icon-firefox not-tested"></span>
+              <span class="icon icon-IE not-tested"></span>
+              <span class="icon icon-opera not-tested"></span>
+              <span class="icon icon-safari not-tested"></span>
+            </div>
+
+            <div class="text-description">
+              <p>
+                Testing groupped options on a select statement.
+              </p>
+            </div>
+          </div>
+
+          <div class="select-wrapper">
+            <div class="left-col">
+
+
+              <select id="6" class="dropdown" title="Multiple options">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="html" disabled>HTML</option>
+
+
+
+
+
+                <optgroup label="Back-end">
+
+
+                  <option value="php">PHP</option>
+
+
+
+                  <option value="ruby">Ruby</option>
+
+
+                </optgroup>
+
+
+
+
+                <optgroup label="Brosers">
+
+
+                  <option value="mozilla-firefox">Mozilla Firefox</option>
+
+
+
+                  <option value="google-chrome">Google Chrome</option>
+
+
+                </optgroup>
+
+
+              </select>
+            </div>
+            <div class="right-col">
+
+
+              <select id="6" class="dropdown" title="Multiple options">
+
+
+                <option value="javascript">Javascript</option>
+
+
+
+
+                <option value="html" disabled>HTML</option>
+
+
+
+
+
+                <optgroup label="Back-end">
+
+
+                  <option value="php">PHP</option>
+
+
+
+                  <option value="ruby">Ruby</option>
+
+
+                </optgroup>
+
+
+
+
+                <optgroup label="Brosers">
+
+
+                  <option value="mozilla-firefox">Mozilla Firefox</option>
+
+
+
+                  <option value="google-chrome">Google Chrome</option>
+
+
+                </optgroup>
+
+
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
 
   </div>
 

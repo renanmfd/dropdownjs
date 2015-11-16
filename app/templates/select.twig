@@ -4,14 +4,41 @@
       name: 'Name', 
       classes: '',
       placeholder: '',
-      selected: '',
-      options: ['Opt1', 'Opt2', 'Opt3'] } 
+      multiple: false,
+      disabled: false,
+      options: [
+        {type: 'normal', text: 'Javascript', disabled: false},
+        {type: 'normal', text: 'Ajax', selected: true},
+        {type: 'normal', text: 'HTML'},
+        {type: 'optgroup', label: 'Group', group: [
+          {type: 'normal', text: 'HTML'},
+          {type: 'normal', text: 'HTML'},
+        ]},
+      ]
+    } 
     %}
   #}
-<select{% if id %} id="{{ id }}"{% endif %}{% if classes %} class="{{ classes }}"{% endif %} title="{{ name }}">
-    {% if placeholder %}<option value="-6" default>{{ placeholder }}</option>{% endif %}
-    {% for key, value in options %}
-      <option value="{{ key }}">{{ value }}</option>
-    {% endfor %}
-  </select>
-</div>
+
+<select{% if id %} id="{{ id }}"{% endif %}
+          {% if classes %} class="{{ classes }}"{% endif %} title="{{ name }}"
+          {% if multiple %} multi{% endif %}
+          {% if placeholder %} data-placeholder="{{ placeholder }}"{% endif %}
+          {% if disabled %} disabled{% endif %}>
+  {% for value in options %}
+    {% if value.type == 'normal' %}
+      <option value="{{ value.text | css }}"{% if value.selected %} selected{% endif %}
+              {% if value.disabled %} disabled{% endif %}>{{ value.text }}</option>
+    {% endif %}
+    {% if value.type == 'optgroup' %}
+      <optgroup label="{{ value.label }}">
+        {% for opt in value.group %}
+          {% if opt.type == 'normal' %}
+            <option value="{{ opt.text | css }}"
+                    {% if opt.selected %} selected{% endif %}
+                    {% if value.disabled %} disabled{% endif %}>{{ opt.text }}</option>
+          {% endif %}
+        {% endfor %}
+      </optgroup>
+    {% endif %}
+  {% endfor %}
+</select>

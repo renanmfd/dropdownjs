@@ -13,8 +13,12 @@ html, body, section, div {
 .container {
   margin-left: 3%;
   margin-right: 3%;
-  max-width: 1000px;
-  margin: 0 auto;
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }
 
 @font-face {
@@ -131,6 +135,67 @@ html, body, section, div {
   padding-bottom: 20px;
 }
 
+.example {
+  position: relative;
+  padding: 10px 0;
+}
+.example:after {
+  content: '';
+  display: block;
+  width: 100%;
+  margin-bottom: -10px;
+  border-bottom: thin solid #1b00ff;
+  opacity: 0.25;
+}
+.example .presentation {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2 0 100%;
+      -ms-flex: 2 0 100%;
+          flex: 2 0 100%;
+}
+.example .presentation .icon {
+  width: 30px;
+  margin-right: 10px;
+}
+.example .presentation .icon.icon-checkmark {
+  color: #20de2f;
+}
+.example .presentation .icon.icon-cross {
+  color: #c31111;
+}
+.example .presentation .prefix {
+  margin-right: 10px;
+  font-family: "Indie Flower", cursive, serif;
+  font-size: 22px;
+}
+.example .presentation h2 {
+  display: inline;
+  margin-right: -20px;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  color: #434053;
+}
+.example .text-description p {
+  margin-left: 30px;
+  font-size: 14px;
+  color: #8c86b1;
+}
+.example .text-description p:empty {
+  display: none;
+}
+.example .tested-browsers {
+  display: inline;
+  margin-left: 30px;
+  white-space: nowrap;
+}
+.example .tested-browsers .icon {
+  color: #20de2f;
+}
+.example .tested-browsers .icon.not-tested {
+  color: #c31111;
+}
+
 .select-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
@@ -139,57 +204,8 @@ html, body, section, div {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  position: relative;
-  padding: 10px 0;
-}
-.select-wrapper:after {
-  content: '';
-  display: block;
   width: 100%;
-  margin-bottom: -10px;
-  border-bottom: thin solid #1b00ff;
-  opacity: 0.25;
-}
-.select-wrapper .presentation {
-  -webkit-box-flex: 2;
-  -webkit-flex: 2 0 100%;
-      -ms-flex: 2 0 100%;
-          flex: 2 0 100%;
-}
-.select-wrapper .presentation .icon {
-  width: 30px;
-  margin-right: 10px;
-  color: #20de2f;
-}
-.select-wrapper .presentation .prefix {
-  margin-right: 10px;
-  font-family: "Indie Flower", cursive, serif;
-  font-size: 22px;
-}
-.select-wrapper .presentation h2 {
-  display: inline;
-  font-family: "Titillium Web", sans-serif;
-  font-size: 18px;
-  font-weight: 200;
-  color: #434053;
-}
-.select-wrapper .text-description p {
-  margin-left: 30px;
-  font-size: 14px;
-  color: #8c86b1;
-}
-.select-wrapper .text-description p:empty {
-  display: none;
-}
-.select-wrapper .tested-browsers {
-  display: inline;
-  margin-left: 10px;
-}
-.select-wrapper .tested-browsers .icon {
-  color: #20de2f;
-}
-.select-wrapper .tested-browsers .icon.not-tested {
-  color: #c31111;
+  padding-left: 30px;
 }
 .select-wrapper .left-col,
 .select-wrapper .right-col {
@@ -198,8 +214,29 @@ html, body, section, div {
       -ms-flex: 1 1 50%;
           flex: 1 1 50%;
 }
+.select-wrapper .left-col {
+  padding-right: 10px;
+}
 .select-wrapper .left-col select {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 27px;
   margin: 10px 0;
+  padding: 3px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: white;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.select-wrapper .right-col {
+  padding-left: 10px;
 }
 
 

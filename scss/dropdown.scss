@@ -1,12 +1,16 @@
-$border: #d4d4d4;
-$background: #e5e5e5;
-$main-bg: #ffffff;
-$border-radius: 5px;
-$color: #454545;
-$hover-bg: #bcbcbc;
-$hover-color: #ffffff;
-$focus-color: #a3a3a3;
+$border:        #d4d4d4;
+$background:    #e5e5e5;
+$main-bg:       #ffffff;
+$color:         #454545;
+
+$hover-option-bg:       #bcbcbc;
+$hover-option-color:    #ffffff;
+$focus-option-color:    #a3a3a3;
+$selected-option-color: #777777;
+$disabled-option-color: #bcbcbc;
+
 $font-size: 14px;
+$border-radius: 5px;
 
 .dropdown-container {
     display: inline-block;
@@ -34,13 +38,17 @@ $font-size: 14px;
         display: block;
         vertical-align: top;
         margin-right: 30px;
-        padding: 4px 7px;
+        padding: 4px 7px 4px 12px;
         font-family: sans-serif;
         font-size: $font-size;
         color: $color;
         text-align: center;
         cursor: pointer;
         user-select: none;
+        
+        &.placeholder {
+            color: $selected-option-color;
+        }
     }
 
     &:after {
@@ -59,7 +67,7 @@ $font-size: 14px;
     }
 
     &:focus {
-        box-shadow: 0 0 1px 1px $focus-color;
+        box-shadow: 0 0 1px 1px $focus-option-color;
       
         &:after {
           opacity: 1;
@@ -71,6 +79,8 @@ $font-size: 14px;
     display: none;
     position: absolute;
     width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
     margin: 0;
     margin-top: -2px;
     padding: 5px 2px;
@@ -83,15 +93,16 @@ $font-size: 14px;
     cursor: pointer;
 
     li {
-        padding: 2px 5px;
+        padding: 4px 5px 4px 10px;
         font-family: sans-serif;
         font-size: $font-size;
         color: $color;
         user-select: none;
+        z-index: 1003;
 
         &:hover {
-            background-color: $hover-bg;
-            color: $hover-color;
+            background-color: $hover-option-bg;
+            color: $hover-option-color;
         }
 
         &.optgroup {
@@ -107,11 +118,26 @@ $font-size: 14px;
         &.group-option {
             padding-left: 15px;
         }
+      
+        &.selected {
+            pointer-events: none;
+            cursor: auto;
+            color: $selected-option-color;
+            text-decoration: underline;
+        }
+
+        &.disabled {
+            pointer-events: none;
+            cursor: auto;
+            color: $disabled-option-color;
+        }
     }
 }
 
 .dropdown-outside {
     display: none;
+    color: transparent;
+    background-color: transparent;
 }
 
 .dropdown-open {

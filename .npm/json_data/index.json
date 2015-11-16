@@ -1,6 +1,132 @@
 {
-  "select_1": {
-    "title": "Ablasdsad"
-  },
-  "select_2": "Blasd asdsa"
+  "selects": [
+    {
+      "id": "1",
+      "name": "Simple select",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "This is the first test done. Just to see if it works with simple select tags, without any advanced stuff.",
+      "select": {
+        "name": "Simple select", 
+        "classes": "dropdown",
+        "multiple": false,
+        "options": [
+          {"type": "normal", "text": "Javascript"},
+          {"type": "normal", "text": "Ajax"},
+          {"type": "normal", "text": "HTML"},
+          {"type": "normal", "text": "Bootstrap"}
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "name": "Several options and large texts",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "On this sample, we have big text to show text wrapping and a lots of options for overflow and scroll test.",
+      "select": {
+        "name": "Several options and large texts", 
+        "classes": "dropdown",
+        "multiple": false,
+        "options": [
+          {"type": "normal", "text": "Drupal"},
+          {"type": "normal", "text": "JIRA"},
+          {"type": "normal", "text": "Javascript"},
+          {"type": "normal", "text": "Ajax"},
+          {"type": "normal", "text": "HTML"},
+          {"type": "normal", "text": "Twitter Bootstrap"},
+          {"type": "normal", "text": "Github"},
+          {"type": "normal", "text": "Cascading Style Sheets also known as CSS"},
+          {"type": "normal", "text": "Foundation"},
+          {"type": "normal", "text": "NodeJS is an amazing tool, you should try it"},
+          {"type": "normal", "text": "Gulp"},
+          {"type": "normal", "text": "GIMP"},
+          {"type": "normal", "text": "SASS"}
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "name": "Selected option",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "One of the options of the select will be selected by default and the Dropdown should do the same.",
+      "select": {
+        "name": "Selected option with selected", 
+        "classes": "dropdown",
+        "multiple": false,
+        "options": [
+          {"type": "normal", "text": "Javascript"},
+          {"type": "normal", "text": "Ajax"},
+          {"type": "normal", "text": "Google Chrome"},
+          {"type": "normal", "text": "Twitter Bootstrap", "selected": true},
+          {"type": "normal", "text": "Github"}
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "name": "Placeholder",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "Adding a placeholder that cannot be selected, using the select data-placeholder attribute.",
+      "select": {
+        "name": "Placeholder", 
+        "classes": "dropdown",
+        "multiple": false,
+        "placeholder": "Choose the best...",
+        "options": [
+          {"type": "normal", "text": "Github"},
+          {"type": "normal", "text": "Cascading Style Sheets also known as CSS"},
+          {"type": "normal", "text": "Foundation"},
+          {"type": "normal", "text": "NodeJS is an amazing tool, you should try it"},
+          {"type": "normal", "text": "Gulp"}
+        ]
+      }
+    },
+    {
+      "id": "5",
+      "name": "Disabled option",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "Test it with some options disabled.",
+      "select": {
+        "name": "Placeholder default", 
+        "classes": "dropdown",
+        "multiple": false,
+        "options": [
+          {"type": "normal", "text": "Javascript"},
+          {"type": "normal", "text": "Mozilla Firefox"},
+          {"type": "normal", "text": "HTML", "disabled": true},
+          {"type": "normal", "text": "Twitter Bootstrap"},
+          {"type": "normal", "text": "Foundation", "disabled": true},
+          {"type": "normal", "text": "NodeJS is an amazing tool, you should try it"}
+        ]
+      }
+    },
+    {
+      "id": "6",
+      "name": "Groupped options",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "Testing groupped options on a select statement.",
+      "select": {
+        "name": "Multiple options", 
+        "classes": "dropdown",
+        "multiple": false,
+        "options": [
+          {"type": "normal", "text": "Javascript"},
+          {"type": "normal", "text": "HTML", "disabled": true},
+          {"type": "optgroup", "label": "Back-end", "group": [
+            {"type": "normal", "text": "PHP"},
+            {"type": "normal", "text": "Ruby"}
+          ]},
+          {"type": "optgroup", "label": "Brosers", "group": [
+            {"type": "normal", "text": "Mozilla Firefox"},
+            {"type": "normal", "text": "Google Chrome"}
+          ]}
+        ]
+      }
+    }
+  ]
 }
