@@ -24,8 +24,8 @@
             <div class="select-wrapper">
               <div class="presentation">
                 <span class="icon icon-checkmark"></span>
-                <span class="prefix">Example 421312:</span>
-                <h2>Simple select</h2>
+                <span class="prefix">Example 1:</span>
+                <h2>Simple select de {{ select_2 }}</h2>
                 <div class="tested-browsers">
                   <span class="icon icon-chrome"></span>
                   <span class="icon icon-firefox not-tested"></span>
@@ -47,6 +47,13 @@
                   <option>Javascript</option>
                   <option>jQuery</option>
                 </select>
+                {% include "select.twig" with {
+                  id: 'id-select',
+                  name: 'Name', 
+                  classes: 'droapsd asdasd',
+                  placeholder: 'asssssss',
+                  options: ['Opt1', 'Opt2', 'Opt3'] } 
+                %}
               </div>
               <div class="right-col">
                 <select class="dropdown">

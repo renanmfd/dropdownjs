@@ -1,25 +1,15 @@
 {# Usage:  
     {% include "form-elements/select.twig" with {
+      id: 'id',
       name: 'Name', 
-      label: false, 
-      required: false,
-      chosen: true,
       classes: '',
       placeholder: '',
+      selected: '',
       options: ['Opt1', 'Opt2', 'Opt3'] } 
     %}
   #}
-<div class="form-item form-type-select form-item-{{ name|css }}{% if classes %} {{ classes }}{% endif %}{% if !label %} no-label{% endif %}">
-  {% if label %}
-    <label for="edit-{{ name|css }}">
-      {{ name }}
-      {% if required %}
-        <span class="form-required">*</span>
-      {% endif %}
-    </label>
-  {% endif %}
-  <select id="edit-{{ name|css }}" class="form-select{% if chosen %} chosen-select{% endif %}" title="{{ name }}">
-    {% if placeholder %}<option value="0" selected="selected" disabled>{{ placeholder }}</option>{% endif %}
+<select{% if id %} id="{{ id }}"{% endif %}{% if classes %} class="{{ classes }}"{% endif %} title="{{ name }}">
+    {% if placeholder %}<option value="-6" default>{{ placeholder }}</option>{% endif %}
     {% for key, value in options %}
       <option value="{{ key }}">{{ value }}</option>
     {% endfor %}

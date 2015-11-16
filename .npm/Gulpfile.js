@@ -11,6 +11,7 @@ var gulp = require('gulp'),
   jsmin = require('gulp-jsmin'),
   rename = require('gulp-rename'),
   swig = require('gulp-swig'),
+  path = require('path'),
   custom_filters = require('./filter/custom_filters.js'),
   reload = browserSync.reload,
   src = {
@@ -81,24 +82,28 @@ gulp.task('js', function () {
     .on('end', reload);
 });
 
+/**
+ * Compile swig templates into HTML.
+ */
 gulp.task('templates', function() {
   gulp.src('../app/templates/index.twig')
     .pipe(swig({
       load_json: true,
-      json_path: '../temapltes/json_data/',
+      json_path: './json_data/',
       setup: function(swig) {
         for (var key in custom_filters) {
           swig.setFilter(key, custom_filters[key]);
         }
       },
+      defaults: { cache: false }
     }))
-    //.pipe(prettify({indent_char: ' ', indent_size: 2}))
+    .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('../app'))
     .on('end', reload);
 });
 
 /**
- * Start the BrowserSync Static Server + Watch files
+ * Start the BrowserSync Static Server + Watch files.
  */
 gulp.task('serve', ['sass', 'appScss', 'js', 'templates'] , function () {
   browserSync({
@@ -111,4 +116,7 @@ gulp.task('serve', ['sass', 'appScss', 'js', 'templates'] , function () {
   gulp.watch(src.swig, ['templates']);
 });
 
+/**
+ * Default task.
+ */
 gulp.task('default', ['serve']);
