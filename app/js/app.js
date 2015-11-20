@@ -1,5 +1,6 @@
 (function () {
     // VALID input. Array of strings.
-    var d = new Dropdown(['.right-col .dropdown']);
-    d.apply();
+    var d = Dropdown('.right-col .dropdown', {width: 220}).apply();
+    console.log('Dropdown', d);
+
 }());

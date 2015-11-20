@@ -21,7 +21,7 @@
 
 <select{% if id %} id="{{ id }}"{% endif %}
           {% if classes %} class="{{ classes }}"{% endif %} title="{{ name }}"
-          {% if multiple %} multi{% endif %}
+          {% if multiple %} multiple{% endif %}
           {% if placeholder %} data-placeholder="{{ placeholder }}"{% endif %}
           {% if disabled %} disabled{% endif %}>
   {% for value in options %}

@@ -235,6 +235,9 @@ html, body, section, div {
   -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+.select-wrapper .left-col select.multiple {
+  height: 120px;
+}
 .select-wrapper .right-col {
   padding-left: 10px;
 }

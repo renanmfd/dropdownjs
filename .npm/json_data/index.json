@@ -121,10 +121,35 @@
             {"type": "normal", "text": "PHP"},
             {"type": "normal", "text": "Ruby"}
           ]},
-          {"type": "optgroup", "label": "Brosers", "group": [
+          {"type": "optgroup", "label": "Browsers", "group": [
             {"type": "normal", "text": "Mozilla Firefox"},
             {"type": "normal", "text": "Google Chrome"}
           ]}
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "name": "Multi select",
+      "completed": true,
+      "tested": [true, false, false, false, false],
+      "description": "Testing for multiple selection widget. Users can select more than one option.",
+      "select": {
+        "name": "Multi select", 
+        "classes": "dropdown multiple",
+        "multiple": true,
+        "options": [
+          {"type": "normal", "text": "HTML"},
+          {"type": "optgroup", "label": "Browsers", "group": [
+            {"type": "normal", "text": "Mozilla Firefox"},
+            {"type": "normal", "text": "Google Chrome"}
+          ]},
+          {"type": "normal", "text": "Javascript"},
+          {"type": "normal", "text": "Facebook API", "disabled": true},
+          {"type": "normal", "text": "Twitter Bootstrap"},
+          {"type": "normal", "text": "Foundation"},
+          {"type": "normal", "text": "Gulp"},
+          {"type": "normal", "text": "NodeJS"}
         ]
       }
     }

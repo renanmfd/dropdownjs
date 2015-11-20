@@ -75,6 +75,7 @@ gulp.task('js', function () {
     .on('error', function (error) {
         console.error(String(error));
     })
+    .pipe(gulp.dest('../app/js/'))
     .pipe(jsmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('../app/js/'))
